@@ -38,9 +38,31 @@
 </template>
 
 <script>
-    export default {
-        name: "Movies"
-    }
+import axios from 'axios';
+
+export default {
+  data() {
+    return {
+      movies: [],
+    };
+  },
+  methods: {
+    getMovies() {
+      const path = 'http://localhost:5000/movies';
+      axios.get(path)
+        .then((res) => {
+          this.movies = res.data.movies;
+        })
+        .catch((error) => {
+          // eslint-disable-next-line
+          console.error(error);
+        });
+    },
+  },
+  created() {
+    this.getMovies();
+  },
+};
 </script>
 
 <style scoped>
