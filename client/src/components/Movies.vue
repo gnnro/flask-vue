@@ -17,11 +17,14 @@
               </tr>
             </thead>
             <tbody>
-             <tr>
-               <td>foo</td>
-               <td>bar</td>
-               <td>baz</td>
-               <td>foobarbaz</td>
+             <tr v-for="(movie, index) in movies" :key="index">
+               <td>{{ movie.title }}</td>
+               <td>{{ movie.director }}</td>
+               <td>{{ movie.starring }}</td>
+               <td>
+                 <span v-if="movie.watched">Yes</span>
+                 <span v-else>No</span>
+               </td>
                <td>
                  <button type="button" class="btn btn-warning btn-sm">Update</button>
                  <button type="button" class="btn btn-danger btn-sm">Delete</button>
