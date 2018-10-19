@@ -38,7 +38,9 @@
       </div>
       <b-modal ref="addMovieModal" id="movie-modal" title="Add a new movie" hide-footer>
         <b-form @submit="onSubmit" @reset="onReset" class="w-100">
-          <b-form-group id="form-title-group" label="Title:" label-for="form-title-input">
+          <b-form-group id="form-title-group"
+                        label="Title:"
+                        label-for="form-title-input">
             <b-form-input id="form-title-input"
                           type="text"
                           v-model="addMovieForm.title"
@@ -46,7 +48,9 @@
                           placeholder="Enter title">
             </b-form-input>
           </b-form-group>
-          <b-form-group id="form-director-group" label="Director:" label-for="form-director-input">
+          <b-form-group id="form-director-group"
+                        label="Director:"
+                        label-for="form-director-input">
             <b-form-input id="form-director-input"
                           type="text"
                           v-model="addMovieForm.director"
@@ -54,7 +58,9 @@
                           placeholder="Enter director">
             </b-form-input>
           </b-form-group>
-          <b-form-group id="form-starring-group" label="Starring:" label-for="form-starring-input">
+          <b-form-group id="form-starring-group"
+                        label="Starring:"
+                        label-for="form-starring-input">
             <b-form-input id="form-director-input"
                           type="text"
                           v-model="addMovieForm.starring"
