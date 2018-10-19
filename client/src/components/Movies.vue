@@ -214,8 +214,61 @@ export default {
     },
     onReset(evt) {
       evt.preventDefault();
-      this.$ref.addMovieModal.hide();
+      this.$refs.addMovieModal.hide();
       this.initForm();
+    },
+    editMovie(movie) {
+      this.editForm = movie;
+    },
+    onSubmitUpdate() {
+      event.preventDefault();
+      this.$refs.editMovieModal.hide();
+      let watched = false;
+      if (this.editForm.watched[0]) watched = true;
+      const payload = {
+        title: this.editForm.title,
+        director: this.editForm.director,
+        starring: this.editForm.starring,
+        watched,
+      };
+      this.updateMovie(payload, this.editForm.id);
+    },
+    updateMovie(payload, movieID) {
+      const path = `http://localhost:5000/movies/${movieID}`;
+      axios.put(path, payload)
+        .then(() => {
+          this.getMovies();
+          this.message = 'Movie updated!';
+          this.showMessage = true;
+        })
+        .catch((error) => {
+          // eslint-disable-next-line
+          console.error(error);
+          this.getMovies();
+        });
+    },
+    onResetUpdate(event) {
+      event.preventDefault();
+      this.$refs.editMovieModal.hide();
+      this.initForm();
+      this.getMovies();
+    },
+    removeMovie(movieID) {
+      const path = `http://localhost:5000/movies/${movieID}`;
+      axios.put(path)
+        .then(() => {
+          this.getMovies();
+          this.message = 'Movie removed!';
+          this.showMessage = true;
+        })
+        .catch((error) => {
+          // eslint-disable-next-line
+          console.error(error);
+          this.getMovies();
+        });
+    },
+    onDeleteMovie(movie) {
+      this.removeMovie(movie.id);
     },
   },
   created() {
