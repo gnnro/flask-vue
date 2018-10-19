@@ -80,6 +80,12 @@ export default {
   data() {
     return {
       movies: [],
+      addMovieForm: {
+        title: '',
+        director: '',
+        starring: '',
+        watched: [],
+      },
     };
   },
   methods: {
