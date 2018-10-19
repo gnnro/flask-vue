@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 
 
@@ -35,12 +35,21 @@ MOVIES = [
 
 
 # check route
-@app.route('/movies', methods=['GET'])
+@app.route('/movies', methods=['GET', 'POST'])
 def all_movies():
-    return jsonify({
-        'status': 'success',
-        'movies': MOVIES
-    })
+    response_object = {'status': 'success'}
+    if request.method == 'POST':
+        post_data = request.get_json()
+        MOVIES.append({
+            'title': post_data.get('title'),
+            'director': post_data.get('director'),
+            'starring': post_data.get('starring'),
+            'watched': post_data.get('watched')
+        })
+        response_object['message'] = 'Movie Added!'
+    else:
+        response_object['movies'] = MOVIES
+    return jsonify(response_object)
 
 
 if __name__ == '__main__':
