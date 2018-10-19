@@ -40,13 +40,13 @@ MOVIES = [
 ]
 
 
-# check route
 @app.route('/movies', methods=['GET', 'POST'])
 def all_movies():
     response_object = {'status': 'success'}
     if request.method == 'POST':
         post_data = request.get_json()
         MOVIES.append({
+            'id': uuid.uuid4().hex,
             'title': post_data.get('title'),
             'director': post_data.get('director'),
             'starring': post_data.get('starring'),
