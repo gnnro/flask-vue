@@ -34,6 +34,41 @@
           </table>
         </div>
       </div>
+      <b-modal ref="addMovieModal" id="movie-modal" title="Add a new movie" hide-footer>
+        <b-form @submit="onSubmit" @reset="onReset" class="w-100">
+          <b-form-group id="form-title-group" label="Title:" label-for="form-title-input">
+            <b-form-input id="form-title-input"
+                          type="text"
+                          v-model="addMovieForm.title"
+                          required
+                          placeholder="Enter title">
+            </b-form-input>
+          </b-form-group>
+          <b-form-group id="form-director-group" label="Director:" label-for="form-director-input">
+            <b-form-input id="form-director-input"
+                          type="text"
+                          v-model="addMovieForm.director"
+                          required
+                          placeholder="Enter director">
+            </b-form-input>
+          </b-form-group>
+          <b-form-group id="form-starring-group" label="Starring:" label-for="form-starring-input">
+            <b-form-input id="form-director-input"
+                          type="text"
+                          v-model="addMovieForm.starring"
+                          required
+                          placeholder="Enter actors">
+            </b-form-input>
+          </b-form-group>
+          <b-form-group id="form-watched-group">
+            <b-form-checkbox-group v-model="addMovieForm.watched" id="form-checks">
+              <b-form-checkbox value="true">Watched?</b-form-checkbox>
+            </b-form-checkbox-group>
+          </b-form-group>
+          <b-button type="submit" variant="primary">Submit</b-button>
+          <b-button type="reset" variant="danger">Reset</b-button>
+        </b-form>
+      </b-modal>
     </div>
 </template>
 
