@@ -4,7 +4,8 @@
         <div class="col-sm-10">
           <h1>Movies</h1>
           <hr><br><br>
-          <button type="button" class="btn btn-success btn-sm">Add Movie</button>
+          <button type="button" class="btn btn-success btn-sm" v-b-modal.movie-modal>Add Movie
+          </button>
           <br><br>
           <table class="table table-hover">
             <thead>
