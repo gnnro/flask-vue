@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+import uuid
 
 
 # configuration
@@ -14,18 +15,21 @@ CORS(app)
 
 MOVIES = [
     {
+        'id': uuid.uuid4().hex,
         'title': 'Saving Private Ryan',
         'director': 'Steven Spielberg',
         'starring': 'Tom Hanks, Matt Damon',
         'watched': True
     },
     {
+        'id': uuid.uuid4().hex,
         'title': 'Goodfellas',
         'director': 'Martin Scorsese',
         'starring': 'Ray Liotta, Robert DeNiro, Joe Pesci',
         'watched': True
     },
     {
+        'id': uuid.uuid4().hex,
         'title': 'Avengers: Infinity War',
         'director': 'Anthony Russo',
         'starring': 'Robert Downey Jr, Chris Hemsworth',
