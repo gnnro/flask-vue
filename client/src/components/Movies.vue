@@ -100,6 +100,43 @@ export default {
           console.error(error);
         });
     },
+    addMovie(payload) {
+      const path = 'http://localhost:5000/movies';
+      axios.post(path, payload)
+        .then(() => {
+          this.getMovies();
+        })
+        .catch((error) => {
+          // eslint-disable-next-line
+          console.log(error);
+          this.getMovies();
+        });
+    },
+    initForm() {
+      this.addMovieForm.title = '';
+      this.addMovieForm.director = '';
+      this.addMovieForm.starring = '';
+      this.addMovieForm.watched = [];
+    },
+    onSubmit(evt) {
+      evt.preventDefault();
+      this.$refs.addMovieModal.hide();
+      let watched = false;
+      if (this.addMovieForm.watched[0]) watched = true;
+      const payload = {
+        title: this.addMovieForm.title,
+        director: this.addMovieForm.director,
+        starring: this.addMovieForm.starring,
+        watched,
+      };
+      this.addMovie(payload);
+      this.initForm();
+    },
+    onReset(evt) {
+      evt.preventDefault();
+      this.$ref.addMovieModal.hide();
+      this.initForm();
+    },
   },
   created() {
     this.getMovies();
