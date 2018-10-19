@@ -16,7 +16,7 @@ This app was made with Vue and Flask. Vue CLI was used to set up the front end w
 
 #### Want to try it out?
 
-#####Fork or Clone Repo
+##### Fork or Clone Repo
 
 Start the server-side Flask app in one terminal window:
 ```
