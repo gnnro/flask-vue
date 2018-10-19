@@ -147,6 +147,13 @@ export default {
         starring: '',
         watched: [],
       },
+      editForm: {
+        id: '',
+        title: '',
+        director: '',
+        starring: '',
+        watched: [],
+      },
       message: '',
       showMessage: false,
     };
@@ -185,6 +192,11 @@ export default {
       this.addMovieForm.director = '';
       this.addMovieForm.starring = '';
       this.addMovieForm.watched = [];
+      this.editForm.id = '';
+      this.editForm.title = '';
+      this.editForm.director = '';
+      this.editForm.starring = '';
+      this.editForm.watched = [];
     },
     onSubmit(evt) {
       evt.preventDefault();
