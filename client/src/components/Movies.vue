@@ -28,8 +28,17 @@
                  <span v-else>No</span>
                </td>
                <td>
-                 <button type="button" class="btn btn-warning btn-sm">Update</button>
-                 <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                 <button type="button"
+                         class="btn btn-warning btn-sm"
+                         v-b-modal.movie-update-modal
+                         @click="editMovie(movie)">
+                   Update
+                 </button>
+                 <button type="button"
+                         class="btn btn-danger btn-sm"
+                         @click="onDeleteMovie(movie)">
+                   Delete
+                 </button>
                </td>
              </tr>
             </tbody>
