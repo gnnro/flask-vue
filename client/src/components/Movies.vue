@@ -4,6 +4,7 @@
         <div class="col-sm-10">
           <h1>Movies</h1>
           <hr><br><br>
+          <alert :message="message" v-if="showMessage"></alert>
           <button type="button" class="btn btn-success btn-sm" v-b-modal.movie-modal>Add Movie
           </button>
           <br><br>
@@ -75,6 +76,7 @@
 
 <script>
 import axios from 'axios';
+import Alert from './Alert';
 
 export default {
   data() {
@@ -86,7 +88,12 @@ export default {
         starring: '',
         watched: [],
       },
+      message: '',
+      showMessage: false,
     };
+  },
+  components: {
+    alert: Alert,
   },
   methods: {
     getMovies() {
@@ -105,6 +112,8 @@ export default {
       axios.post(path, payload)
         .then(() => {
           this.getMovies();
+          this.message = 'Movie added!';
+          this.showMessage = true;
         })
         .catch((error) => {
           // eslint-disable-next-line
