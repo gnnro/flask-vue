@@ -58,5 +58,33 @@ def all_movies():
     return jsonify(response_object)
 
 
+@app.route('/movies/<movie_id>', methods=['PUT', 'DELETE'])
+def single_movie(movie_id):
+    response_object = {'status': 'success'}
+    if request.method == 'PUT':
+        post_data = request.get_json()
+        remove_movie(movie_id)
+        MOVIES.append({
+            'id': uuid.uuid4().hex,
+            'title': post_data.get('title'),
+            'director': post_data.get('director'),
+            'starring': post_data.get('starring'),
+            'watched': post_data.get('watched')
+        })
+        response_object['message'] = 'Movie updated!'
+    if request.method == 'DELETE':
+        remove_movie()
+        response_object['message'] = 'Movie removed!'
+    return jsonify(response_object)
+
+
+def remove_movie(movie_id):
+    for movie in MOVIES:
+        if movie['id'] == movie_id:
+            MOVIES.remove(movie)
+            return True
+    return False
+
+
 if __name__ == '__main__':
     app.run()
