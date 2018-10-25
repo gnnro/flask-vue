@@ -6,12 +6,12 @@ This app was made with Vue and Flask. Vue CLI was used to set up the front end w
 
 #### Technologies Used
 ```
-*Vue
-*Vue CLI
-*Node
-*npm
-*Flask
-*Python
+* Vue
+* Vue CLI
+* Node
+* npm
+* Flask
+* Python
 ```
 
 #### Want to try it out?
@@ -23,7 +23,6 @@ Start the server-side Flask app in one terminal window:
 $ cd server
 $ python3.6 -m venv env
 $ source env/bin/activate
-(env)$ pip install -r requirements.txt
 (env)$ python app.py
 ```
 Navigate to <http://localhost:5000>
