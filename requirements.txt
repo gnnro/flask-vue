@@ -14,7 +14,7 @@ idna==2.7
 ipaddress==1.0.22
 jmespath==0.9.3
 paramiko==2.4.1
-psutil==5.4.6
+psutil==5.6.6
 pyasn1==0.4.3
 pycparser==2.18
 PyNaCl==1.2.1
