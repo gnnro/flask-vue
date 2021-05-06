@@ -26,4 +26,4 @@ s3transfer==0.1.13
 six==1.11.0
 urllib3==1.23
 Flask==1.0.2
-Flask-Cors==3.0.4
+Flask-Cors==3.0.9
